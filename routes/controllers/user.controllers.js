@@ -16,7 +16,7 @@ controller.getUserData = async (req, res) => {
       return res.status(400).json({ msg: errorMessages });
     }
     // get data of all users from db expect admins
-    const user = await service.getUsersData();
+    const user = await service.getUserData();
 
     return res.status(200).json(user);
   } catch (error) {
@@ -71,9 +71,6 @@ controller.updateUserData = async (req, res) => {
         case "mobile":
           dataToCheck.push({ type: "number", value: data[key] });
           break;
-        case "designation":
-          dataToCheck.push({ type: "text", value: data[key] });
-          break;
         case "dob":
           dataToCheck.push({ type: "date", value: data[key] });
           break;
@@ -106,20 +103,6 @@ controller.updateUserData = async (req, res) => {
     // if error in sign in return bad request
     if (errorMessages.length > 0) {
       return res.status(400).json({ msg: errorMessages });
-    }
-
-    if (data.hasOwnProperty("profileUrl")) {
-      const deleteUrl = await helperService.getUrlForDeleteFile({
-        table: "users",
-        field: "profileUrl",
-        id: data.id,
-      });
-
-      if (
-        deleteUrl &&
-        deleteUrl.indexOf("https://sa-media.fra1.digitaloceanspaces.com") != -1
-      )
-        await deleteFile(deleteUrl);
     }
 
     // check if user is exist in database with this id

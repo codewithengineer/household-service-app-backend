@@ -4,7 +4,7 @@ const service = {};
 
 service.getUserData = async (id) => {
   return new Promise((resolve, reject) => {
-    const query = "select * from ?? where id=? && `delete`=0";
+    const query = "select * from ?? where id=?";
     connection.query(query, ["users", id], (err, result) => {
       if (err) {
         reject(err);
@@ -17,7 +17,7 @@ service.getUserData = async (id) => {
 
 service.getUserDataById = async (id) => {
   return new Promise((resolve, reject) => {
-    const query = "select ??, ??, ??, ??, ?? from ?? where id=? && `delete`=0";
+    const query = "select ??, ??, ??, ??, ?? from ?? where id=?";
     connection.query(
       query,
       ["id", "firstName", "lastName", "email", "profileUrl", "users", id],
@@ -39,7 +39,6 @@ service.updateUserInfo = async (data) => {
     "firstName",
     "lastName",
     "email",
-    "designation",
     "address",
     "bankName",
     "accountHoldersName",
@@ -65,9 +64,7 @@ service.updateUserInfo = async (data) => {
 
   return new Promise((resolve, reject) => {
     const query =
-      "update ?? set " +
-      setDataQuery +
-      ` id=${data.id}  where id=${data.id} && \`delete\`=0`;
+      "update ?? set " + setDataQuery + ` id=${data.id}  where id=${data.id}`;
     connection.query(query, ["users"], (err, result) => {
       if (err) {
         reject(err);

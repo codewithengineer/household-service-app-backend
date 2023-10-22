@@ -24,7 +24,7 @@ module.exports = async function email(email, subject, message, file) {
     html: `${message}`,
   };
 
-  if (file.name) {
+  if (file?.name) {
     mailOpions.attachments = [
       {
         filename: file.name,

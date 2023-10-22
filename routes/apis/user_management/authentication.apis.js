@@ -1,12 +1,11 @@
 const express = require("express");
 const controller = require("../../controllers/authentication.controllers");
-const { checkIfAdmin } = require("../../middlewares/checks/check_if_admin");
 const { authorizeToken } = require("../../middlewares/token.js");
 
 const router = express.Router();
 
 // signup user and return token
-router.post("/users/sign-up", authorizeToken, checkIfAdmin, controller.signup);
+router.post("/users/sign-up", controller.signup);
 
 // signin user and return token
 router.post("/users/sign-in", controller.signin);

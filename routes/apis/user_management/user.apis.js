@@ -6,7 +6,7 @@ const { authorizeToken } = require("../../middlewares/token.js");
 const router = express.Router();
 
 // get data of the user himself
-router.get("/", authorizeToken, controller.getUsersData);
+router.get("/", authorizeToken, controller.getUserData);
 
 // get data of another user
 router.get("/user/:id", authorizeToken, controller.getUserDataById);

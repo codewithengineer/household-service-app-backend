@@ -1,0 +1,35 @@
+{
+  "name": "household-service-app-backend",
+  "version": "1.0.0",
+  "description": "Backend build in nodejs for online house hoild servicess ",
+  "main": "server.js",
+  "scripts": {
+    "serve": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codewithengineer/household-service-app-backend.git"
+  },
+  "keywords": [
+    "Backend",
+    "Node"
+  ],
+  "author": "Abhijeet Gavali <mr.abhijeetgavali@gmail.com>",
+  "license": "GNU",
+  "bugs": {
+    "url": "https://github.com/codewithengineer/household-service-app-backend/issues"
+  },
+  "homepage": "https://github.com/codewithengineer/household-service-app-backend#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.6.2",
+    "nodemailer": "^6.9.7",
+    "nodemon": "^3.0.1"
+  }
+}
